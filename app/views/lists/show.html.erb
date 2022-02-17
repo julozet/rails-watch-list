@@ -1,2 +1,23 @@
-<h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1000/500);">
+  <div class="container">
+    <h1>List | <%= @list.name %></h1>
+  </div>
+</div>
+<br>
+<h1>List | <%= @list.name %></h1>
+  <div class="card-container">
+    <% @list.movies.each do |movie| %>
+      <div class="card-product">
+            <img class="card-image" src=<%="#{movie.poster_url}"%> alt="Card image cap">
+            <div class="card-product-infos">
+              <h2><%= movie.title %></h2>
+              <p><%= movie.overview %></p>
+              <p><%= movie.rating %>/10 </p>
+              <%# <p class="card-text"><%= movie.bookmarks.comment %></p> %>
+            </div>
+      </div>
+    <%end%>
+  </div>
+
+<br>
 <%= render 'bookmarks/form'%>

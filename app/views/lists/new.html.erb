@@ -1,7 +1,9 @@
-<h1>Create a new list</h1>
-<%= simple_form_for [@list] do |f| %>
-  <%= f.input :name %>
-  <%# <%= f.input :comment %>
-  <%# <%= f.association :movie_id %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<h1 class="header-new-list">Create a new list</h1>
+<div class="container">
+  <%= simple_form_for [@list] do |f| %>
+    <%= f.input :name %>
+    <%# <%= f.input :comment %>
+    <%# <%= f.association :movie_id %>
+    <%= f.submit class: "btn btn-secondary" %>
+  <% end %>
+</div>
