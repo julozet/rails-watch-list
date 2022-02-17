@@ -1,2 +1,11 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>Lists index</h1>
+<ul>
+  <% @lists.each do |list| %>
+  <li><%=link_to list.name, list_path(list) %>
+    <%# <%= link_to "🗑" ,
+              restaurant_path(restaurant),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></li>
+  <% end %>
+<%= link_to "Create a new list", new_list_path, class: "btn btn-primary" %>
+</ul>
