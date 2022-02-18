@@ -1,6 +1,5 @@
 .review-container{
   display: flex;
-  width: 30vh 1fr;
   justify-content: flex-start;
   padding: 10px;
   background-color: white;
@@ -10,6 +9,19 @@
   padding-left: 20px;
 }
 
+.list-review h4 {
+  padding-left: 20px;
+}
+
 .list-review ul {
   list-style: none;
+}
+
+.review-container .review-form {
+  width: 30%;
+}
+
+.movie-container{
+  display: flex;
+  padding-right: 10px;
 }
