@@ -1,8 +1,15 @@
 .review-container{
   display: flex;
-  justify-content: space-around;
+  width: 30vh 1fr;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: white;
 }
 
-ul a {
-  color: black;
+.list-review {
+  padding-left: 20px;
+}
+
+.list-review ul {
+  list-style: none;
 }

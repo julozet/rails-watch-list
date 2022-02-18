@@ -7,33 +7,51 @@
 <br>
 
 <h1>List | <%= @list.name %></h1>
-  <div class="card-container">
-    <% @list.movies.each do |movie| %>
-      <div class="card-product">
-        <img class="card-image" src=<%="#{movie.poster_url}"%> alt="Card image cap">
-          <div class="card-product-infos">
-            <h2><strong><%= movie.title %></strong> |
-              <%= movie.rating %>/10 ⭐️
-            </h2>
-            <p><%= movie.overview %></p>
-            <br>
-            <div class="card-comments">
-              <ul>
-                <% movie.bookmarks.each do |bookmark| %>
-                  <li><%= bookmark.comment %>
-                    <%= link_to "| Delete" ,
-                        bookmark_path(bookmark),
-                        method: :delete,
-                        data: { confirm: "Are you sure you want to delete this comment ?" }  %>
-                  </li>
-                <% end %>
-              </ul>
+  <div class="movie-container">
+    <div class="card-container">
+      <% @list.movies.each do |movie| %>
+        <div class="card-product">
+          <img class="card-image" src=<%="#{movie.poster_url}"%> alt="Card image cap">
+            <div class="card-product-infos">
+              <h2><strong><%= movie.title %></strong> |
+                <%= movie.rating %>/10 ⭐️
+              </h2>
+              <p><%= movie.overview %></p>
+              <br>
+              <div class="card-comments">
+                <ul>
+                  <% movie.bookmarks.each do |bookmark| %>
+                    <li><%= bookmark.comment %>
+                      <%= link_to "| Delete this movie" ,
+                          bookmark_path(bookmark),
+                          method: :delete,
+                          data: { confirm: "Are you sure you want to delete this comment ?" }  %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-          </div>
-      </div>
-    <%end%>
+        </div>
+      <%end%>
+    </div>
+    <div><%= render 'bookmarks/form'%></div>
   </div>
 
 <br>
 <div class="review-container">
-  <div><%= render 'bookmarks/form'%></div>
+    <div><%= render 'reviews/form'%></div>
+    <div class="list-review">
+      <h4> List comments | </h4>
+      <ul>
+        <% @list.reviews.each do |review|%>
+          <li><%= review.content %>
+            <%= link_to "| Delete" ,
+              review_path(review),
+              method: :delete,
+              data: { confirm: "Are you sure you want to delete this comment ?" }  %>
+            <%# <%=review.created_at %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>
