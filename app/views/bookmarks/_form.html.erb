@@ -1,5 +1,5 @@
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
   <%= f.input :movie_id, collection: Movie.all %>
+  <%= f.input :comment %>
   <%= f.submit 'Add a movie', class: "btn btn-secondary"  %>
 <% end %>
