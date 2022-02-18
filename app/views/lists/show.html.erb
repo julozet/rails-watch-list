@@ -44,7 +44,8 @@
       <h4> List comments | </h4>
       <ul>
         <% @list.reviews.each do |review|%>
-          <li><%= review.content %>
+          <li>⭐️ <%= review.rating %> |
+            <%= review.content %>
             <%= link_to "| Delete" ,
               review_path(review),
               method: :delete,
